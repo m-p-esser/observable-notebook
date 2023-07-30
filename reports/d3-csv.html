@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hpcc-js/observablehq-compiler/dist/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/runtime/dist/runtime.umd.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/observablehq-compiler/dist/index.min.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    var compilerMod = window["@hpcc-js/observablehq-compiler"]
+  </script>
+</head>
+
+<body>
+  <div id="placeholder" class="observablehq-root">
+  </div>
+  <script type="module">
+    const notebook = {
+    "id": "dc18fe2ce5c93492",
+    "type": "notebook",
+    "slug": "d3-csv",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "live",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": false,
+    "update_time": "2023-07-30T09:46:57.556Z",
+    "first_public_version": 27,
+    "paused_version": null,
+    "publish_time": "2023-07-30T09:35:51.376Z",
+    "publish_version": 48,
+    "latest_version": 48,
+    "thumbnail": "43bb0332a446a36a3c874ff2a5637a609f25156e03f33f7b637b87124a3544cd",
+    "default_thumbnail": "43bb0332a446a36a3c874ff2a5637a609f25156e03f33f7b637b87124a3544cd",
+    "roles": [],
+    "sharing": null,
+    "tags": [],
+    "owner": {
+        "id": "ed6533a9d41784fd",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e2878f8a452461d7870cc6d35407b586347461081dbe96e260ef93596e84cd46",
+        "login": "marc-philipp-esser-ws",
+        "name": "Marc-Philipp Esser's Workspace",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "pro",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+    },
+    "creator": {
+        "id": "495d15f3cc965268",
+        "github_login": "marc-philipp-esser",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/de1b26c26afe97a196708b45f52df2ecf2eb73f797930fa314f5282c947a2d4b",
+        "login": "marc-philipp-esser",
+        "name": "Marc-Philipp Esser",
+        "bio": "",
+        "home_url": "",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+    },
+    "authors": [
+        {
+            "id": "495d15f3cc965268",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/de1b26c26afe97a196708b45f52df2ecf2eb73f797930fa314f5282c947a2d4b",
+            "name": "Marc-Philipp Esser",
+            "login": "marc-philipp-esser",
+            "bio": "",
+            "home_url": "",
+            "github_login": "marc-philipp-esser",
+            "tier": "public",
+            "approved": true,
+            "description": "",
+            "following_count": 0,
+            "followers_count": 0,
+            "following": false
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "c2b99647b82da1bdc1dea78a2a0941e9aa3ace1503e36dbf0efd2783b7fd590513aaaf370d6bfdd6d07b449f926283cbcecd293f267c01f43d6c52334b93461c",
+            "url": "https://static.observableusercontent.com/files/c2b99647b82da1bdc1dea78a2a0941e9aa3ace1503e36dbf0efd2783b7fd590513aaaf370d6bfdd6d07b449f926283cbcecd293f267c01f43d6c52334b93461c",
+            "download_url": "https://static.observableusercontent.com/files/c2b99647b82da1bdc1dea78a2a0941e9aa3ace1503e36dbf0efd2783b7fd590513aaaf370d6bfdd6d07b449f926283cbcecd293f267c01f43d6c52334b93461c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27Automobile.csv",
+            "name": "Automobile.csv",
+            "create_time": "2023-07-30T09:46:42.211Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 19285,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 48,
+    "title": "D3 CSV",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "name": "",
+            "value": "# D3 CSV",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 30,
+            "name": null,
+            "value": "// Import the function into your notebook\r\nimport { SummaryTable } from \"@observablehq/summary-table\"\r\nimport {dataInput} from \"@john-guerra/data-input\"",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 10,
+            "name": null,
+            "value": "library = require(\"d3\")",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": "1a41a0df-8969-42d1-a432-0e9e281309fc",
+            "name": "",
+            "value": "viewof data = dataInput({\r\n  value: [{ name: \"Your Initial Data\" }],\r\n  delimiter: ',', // Optional\r\n  format: \"auto\" // Optional, one of MongoExport, JSON, CSV, CSVNoAutoType\r\n})",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "dafcc0c0-cd15-447a-b3ed-05aa89bad77e",
+            "name": "",
+            "value": "data",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": 18,
+            "name": null,
+            "value": "// data = d3.csvParse(\r\n//   await FileAttachment(\"Premier_League.csv\").text()\r\n// )",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 44,
+            "name": null,
+            "value": "// Create a view of the summary statistics\r\nviewof summary_data = SummaryTable(data, {label: \"Example Data\"})",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        }
+    ],
+    "resolutions": [
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/summary-table",
+            "value": "253d3c1b5eb8410c@1948"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@mkfreeman/plot-tooltip",
+            "value": "67d1b2c32f1883c4@669"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-cheatsheets-marks",
+            "value": "d2dffac0e42406e8@3045"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/cheatsheet-utilities",
+            "value": "794aa914fd015c9e@3360"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@nebrius/indented-toc",
+            "value": "9bed702f80a3797e@402"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-exploration-penguins",
+            "value": "32eeadb67cb4cbcb@1472"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@mbostock/pbcopy",
+            "value": "ab3e70b29c480e6d@83"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@zanarmstrong/highlight-color-w-dropdown",
+            "value": "8d6618bb2d7befdd@199"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@jashkenas/inputs",
+            "value": "e93997d5089d7165@2303"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-stack",
+            "value": "33bc32700f22adb1@887"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@john-guerra/file-input-with-default-value",
+            "value": "1371b3b2446a73b4@308"
+        }
+    ]
+};
+    const placeholder = document.getElementById("placeholder");
+    const compiledNB = await compilerMod.compile(notebook);
+    const library = new observablehq.Library();
+    const runtime = new observablehq.Runtime(library);
+    compiledNB(runtime, name => {
+      const div = document.createElement("div");
+      placeholder.appendChild(div);
+      return new observablehq.Inspector(div);
+    });
+  </script>
+</body>
+
+</html>
